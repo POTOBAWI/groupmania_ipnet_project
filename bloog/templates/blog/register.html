@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1 class="text-primary d-flex justify-content-center">enregistrement des utilisateurs</h1>
+
+{% for message in messages %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+
+<form action="" method="post" class="col-md-6 center mx-auto">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input class="form-control" type="text" name="username" id="username" placeholder="entrez le nom de l'utilisateur">
+    <br><br>
+    <label for="firstname">Firstname</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="entrez le prenom de l'utilisateur">
+    <br><br>
+    <label for="lastname">Lastname</label>
+    <input class="form-control" type="text" name="lastname" id="lastname" placeholder="entrez le prenom de l'utilisateur">
+    <br><br>
+    <label for="email">Email</label>
+    <input class="form-control" type="text" name="email" id="email" placeholder="entrez le mail de l'utilisateur">
+    <br><br>
+    <label for="password">Password</label>
+    <input class="form-control" type="text" name="password" id="password" placeholder="entrez le mot de passe de l'utilisateur">
+    <br><br>
+    <label for="password1">Password1</label>
+    <input class="form-control" type="text" name="password1" id="password1" placeholder="confirmez le mot de passe de l'utilisateur">
+    <br><br>
+    <button type="submit" class="btn btn-success">Save</button>
+    
+
+</form>
+    
+{% endblock  %}

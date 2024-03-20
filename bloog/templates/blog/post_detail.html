@@ -1,0 +1,21 @@
+<!-- post_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Contenu du post de blog -->
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+
+  <!-- Afficher les likes -->
+  <h2>Likes</h2>
+  {% if post.likes.all %}
+    <ul>
+      {% for like in post.likes.all %}
+        <li>{{ like.utilisateur.username }} - {{ like.date_creation }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun like pour le moment.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1 class="text-primary d-flex justify-content-center">page de connection</h1>
+
+
+{% for message in messages %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+    
+<form method="post"  action="{% url 'login' %}" class="col-md-6 mx-auto">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" placeholder="entrez le nom d'utilisateur" required class="form-control">
+    <br>
+    <label for="password">Password</label>
+    <input type="text" name="password" id="password" placeholder="entrez le mot de passe" required class="form-control">
+    <br>
+    <button type="submit" class="btn btn-primary">envoyer</button>
+    <p>vous n'avez pas de compte?</p><a href="{% url 'register' %}">creer un compte</a></p>
+</form>
+    
+{% endblock  %}
